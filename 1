@@ -1,0 +1,27 @@
+using System;
+using System.Linq;
+
+public class CyclicShiftRight
+{
+    public static void Main(string[] args)
+    {
+        // Ввод количества элементов
+        Console.WriteLine("Введите количество элементов:");
+        int n = Convert.ToInt32(Console.ReadLine());
+
+        // Ввод элементов массива
+        Console.WriteLine("Введите элементы массива:");
+        int[] arr = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+
+        // Циклический сдвиг вправо
+        int lastElement = arr[n - 1];
+        for (int i = n - 1; i > 0; i--)
+        {
+            arr[i] = arr[i - 1];
+        }
+        arr[0] = lastElement;
+
+        // Вывод результата
+        Console.WriteLine(string.Join(" ", arr));
+    }
+}
